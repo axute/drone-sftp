@@ -1,5 +1,5 @@
 FROM alpine
-RUN apk add --update --no-cache  openssh sshpass bash lftp
+RUN apk add --update --no-cache  openssh sshpass bash lftp moreutils
 ENV PLUGIN_USERNAME ''
 ENV PLUGIN_PASSWORD ''
 ENV PLUGIN_HOST ''
