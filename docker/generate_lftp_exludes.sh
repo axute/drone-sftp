@@ -1,6 +1,6 @@
 #!/bin/bash
-echo "generate /lftp_exludes.rx" | ts
-touch /lftp_exludes.rx
+echo "generate /lftp_excludes.rx" | ts
+touch /lftp_excludes.rx
 if [ -n "${PLUGIN_EXCLUDE}" ]
 then
   IFS=','
@@ -8,7 +8,8 @@ then
   # Print each value of the array by using the loop
   for RX_PATTERN in "${RX_EXLUDES[@]}";
   do
-    echo -E "${RX_PATTERN}" >>/lftp_exludes.rx
+    echo -E "${RX_PATTERN}" >>/lftp_excludes.rx
   done
+  ts < /lftp_excludes.rx
 fi
 echo "done" | ts
