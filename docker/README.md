@@ -1,4 +1,4 @@
-# Deploy to SFTP server from Drone CI
+# Deploy to SFTP server from Drone CI (username and password)
 
 [![Docker Build](https://img.shields.io/docker/cloud/automated/axute/drone-sftp.svg)](https://hub.docker.com/r/axute/drone-sftp/)
 [![Docker Layers](https://img.shields.io/docker/image-size/axute/drone-sftp)](https://hub.docker.com/r/axute/drone-sftp/)
