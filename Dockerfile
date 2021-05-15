@@ -5,6 +5,6 @@ ENV PLUGIN_PASSWORD ''
 ENV PLUGIN_HOST ''
 ENV PLUGIN_TARGET ''
 ENV PLUGIN_SOURCE ''
-COPY entrypoint.sh /entrypoint.sh
+COPY docker/entrypoint.sh /entrypoint.sh
 RUN chmod 700 /entrypoint.sh
 ENTRYPOINT /entrypoint.sh
