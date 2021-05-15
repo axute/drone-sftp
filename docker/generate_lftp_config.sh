@@ -1,4 +1,9 @@
 #!/bin/bash
-echo "generate ~/.lftptc" | ts
-tee ~/.lftprc < /.lftprc| ts
-echo "done" | ts
+echo "generate ~/.lftptc ..." | ts
+if [ -n "${PLUGIN_DEBUG}" ]; then
+  tee ~/.lftprc < /.lftprc| ts
+else
+  cat /.lftprc > ~/.lftprc
+fi
+
+echo "... done" | ts

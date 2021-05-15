@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "generate /lftp_excludes.rx" | ts
+echo "generate /lftp_excludes.rx ..." | ts
 touch /lftp_excludes.rx
 if [ -n "${PLUGIN_EXCLUDE}" ]
 then
@@ -10,6 +10,9 @@ then
   do
     echo -E "${RX_PATTERN}" >>/lftp_excludes.rx
   done
-  ts < /lftp_excludes.rx
+  if [ -n "${PLUGIN_DEBUG}" ]; then
+    ts < /lftp_excludes.rx
+  fi
+
 fi
-echo "done" | ts
+echo "... done" | ts

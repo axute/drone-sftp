@@ -1,7 +1,11 @@
 #!/bin/bash
-echo "generate ~/.ssh/config" | ts
+echo "generate ~/.ssh/config ..." | ts
 mkdir -p ~/.ssh
 touch ~/.ssh/config
 echo "Host ${PLUGIN_HOST}
   StrictHostKeyChecking no" > ~/.ssh/config
-echo "done" | ts
+if [ -n "${PLUGIN_DEBUG}" ]; then
+  ts < ~/.ssh/config
+fi
+
+echo "... done" | ts
