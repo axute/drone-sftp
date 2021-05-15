@@ -1,7 +1,7 @@
 #!/bin/bash
 /generate_ssh_config.sh
 /generate_lftp_exludes.sh
-
+/generate_lftp_config.sh
 export LFTP_PASSWORD="${PLUGIN_PASSWORD}"
 if [ -n "${PLUGIN_DEBUG}" ]
 then

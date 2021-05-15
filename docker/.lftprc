@@ -1,0 +1,79 @@
+# lftp has the following settable variables (you can also use 'set -a' to see all variables and their values):
+# save plain text passwords in ~/.lftp/bookmarks on 'bookmark add' command. Off by default.
+set bmk:save-passwords no
+
+# The commands in string are executed before lftp exits.
+set cmd:at-exit "bye"
+
+# enables csh-like history expansion.
+set cmd:csh-history no
+
+#The value is used when 'open' is used with just host name without protocol. Default is 'ftp'.
+set cmd:default-protocol ftp
+
+# if true, exit when an unconditional (without || and && at begin) command fails.
+set cmd:fail-exit no
+
+# time of command execution, which is considered as 'long' and a beep is done before next prompt. 0 means off.
+set cmd:long-running 1
+
+# default ls argument
+set cmd:ls-default "ls -lh"
+
+# when false, lftp refuses to go to background when exiting. To force it, use 'exit bg'.
+
+# query for SRV records and use them before gethostbyname. The SRV records are only used if port is not explicitly
+# specified. See RFC2052 for details.
+set dns:SRV-query no
+
+# enable DNS cache. If it is off, lftp resolves host name each time it reconnects.
+set dns:cache-enable yes
+
+# time to live for DNS cache entries. It has format <number><unit>+, e.g. 1d12h30m5s or just 36h. To disable
+# expiration, set it to 'inf' or 'never'.
+set dns:cache-expire 1h
+
+# maximum number of DNS cache entries.
+set dns:cache-size 512
+
+# limit the time for DNS queries. If DNS server is unavailable too long, lftp will fail to resolve a given host
+# name. Set to 'never' to disable.
+set dns:fatal-timeout 10
+
+# if true, lftp will fork before resolving host address. Default is true.
+set dns:use-fork yes
+
+# If zero, there is no limit on the number of times lftp will try to lookup an address. If > 0, lftp will try only
+# this number of times to look up an address of each address family in dns:order.
+set dns:max-retries 10
+
+# local character set. It is set from current locale initially.
+set file:charset utf-8
+
+# the character set used by fish server in requests, replies and file listings. Default is empty which means the
+# same as local.
+set fish:charset utf-8
+
+
+# maximum number of concurrent connections to the same site. 0 means unlimited.
+set net:connection-limit 2
+
+# ignore this number of hard errors. Useful to login to buggy ftp servers which reply 5xx when there is too many users.
+set net:persist-retries 5
+
+# sets the base minimal time between reconnects. Actual interval depends on net:reconnect-interval-multiplier and
+# number of attempts to perform an operation.
+set net:reconnect-interval-base 60
+
+# sets maximum reconnect interval. When current interval after multiplication by net:reconnect-interval-multiplier
+# reachs this value (or exceeds it), it is reset back to net:reconnect-interval-base.
+set net:reconnect-interval-max 60
+
+# sets multiplier by which base interval is multiplied each time new attempt to perform an operation fails. When
+# the interval reachs maximum, it is reset to base value. See net:reconnect-interval-base and
+# net:reconnect-interval-max.
+# set net:reconnect-interval-multiplier (real number)
+
+# the character set used by sftp server in file names and file listings. Default is empty which means the same as
+# local. This setting is only used for sftp protocol version prior to 4. Version 4 and later always use UTF-8.
+set sftp:charset "utf-8"
