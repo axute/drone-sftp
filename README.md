@@ -1,4 +1,4 @@
-# Deploy to SFTP server from Drone CI (username and password)
+# Deploy to SFTP server from Drone CI <br />(username and password)
 
 [![Docker Build](https://img.shields.io/docker/cloud/automated/axute/drone-sftp.svg)](https://hub.docker.com/r/axute/drone-sftp/)
 [![Docker Layers](https://img.shields.io/docker/image-size/axute/drone-sftp)](https://hub.docker.com/r/axute/drone-sftp/)
@@ -36,22 +36,22 @@ name: default
 type: docker
 steps:
   - name: deploy
-  image: axute/drone-sftp
-  settings:
-    host: ssh.strato.de
-    source: relative/dir/in/project
-    target: /absolute/dir/on/server
-    username:
-      from_secret: username
-    password:
-      from_secret: password
-    debug: true
-    exclude:
+    image: axute/drone-sftp
+    settings:
+      host: ssh.strato.de
+      source: relative/dir/in/project
+      target: /absolute/dir/on/server
+      username:
+        from_secret: username
+      password:
+        from_secret: password
+      debug: true
+      exclude:
         - ^\.git/$
         - ^\cache/$
-  when:
-    branch:
-    - master
-    event:
-    - push
+    when:
+      branch:
+      - master
+      event:
+      - push
 ```
