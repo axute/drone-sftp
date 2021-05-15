@@ -1,6 +1,6 @@
 #!/bin/bash
-./generate_ssh_config.sh
-./generate_lftp_exludes.sh
+/generate_ssh_config.sh
+/generate_lftp_exludes.sh
 
 export LFTP_PASSWORD="${PLUGIN_PASSWORD}"
 LFTP_COMMAND=""
